@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	pb "github.com/359025765/go-micro-demo/proto/demo"
+	pb "github.com/359025765/go-micro-demo/demo-service/proto/demo"
 	"github.com/micro/go-micro"
 	"log"
 )
