@@ -1,6 +1,5 @@
 build:
 	protoc --proto_path=. --micro_out=. --go_out=. proto/demo/demo.proto
-	GOOS=linux GOARCH=amd64 go build
-	docker build -t laracom-demo-service -f env/Dockerfile .
+	docker build -t demo-service -f env/Dockerfile .
 run:
-	docker run -d -p 9091:9999 -p 8081:8000 laracom-demo-service
+	docker run -d -p 9091:09091 -e MICRO_SERVER_ADDRESS=:9091 -e MICRO_REGISTRY=mdns demo-service
