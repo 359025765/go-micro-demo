@@ -10,11 +10,17 @@ services:
       MICRO_SERVER_ADDRESS: ":9000"
       MICRO_REGISTRY: "mdns"
       DB_HOST: "laracom-db:3306"
-      DB_NAME: "homestead"
+      DB_NAME: "micro-homestead"
       DB_USER: "root"
       DB_PASSWORD: "secret"
+
+  laracom-user-cli:
+    container_name: laracom-user-cli
+    build: ./user-cli
+    environment:
+      MICRO_REGISTRY: "mdns"
 
 networks:
   default:
     external:
-      name: laracom-master_laracom-net
+      name: laracom-php_laracom-net

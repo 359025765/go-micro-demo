@@ -29,11 +29,8 @@ func (srv *UserService) GetAll(ctx context.Context, req *pb.Request, res *pb.Res
 	return nil
 }
 
-//func (srv *UserService) GetByEmail (ctx context.Context, req *pb.Request, res *pb.Response) error {
-//    users, err := srv.Repo.GetByEmail(req.Email)
-//}
-
 func (srv *UserService) Create(ctx context.Context, req *pb.User, res *pb.Response) error {
+	// 对密码进行hash加密
 	hashedPwd, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 	if err != nil {
 		return err
