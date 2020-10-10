@@ -37,7 +37,7 @@ func main() {
 	pb.RegisterUserServiceHandler(service.Server(), &handler.UserService{repo})
 
 	// 启动用户服务
-	if err := srv.Run(); err != nil {
+	if err := service.Run(); err != nil {
 		fmt.Println(err)
 	}
 
