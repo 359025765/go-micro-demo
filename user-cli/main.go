@@ -66,17 +66,17 @@ func main() {
 			if err != nil {
 				log.Fatalf("用户认证失败: %v", err)
 			}
-			log.Printf("用户认证成功: %s", token.Valid)
+			log.Printf("用户认证成功: %v", token.Valid)
 
 			// 调用获取所有用户服务
 			getAll, err := client.GetAll(context.Background(), &pb.Request{})
 			if err != nil {
 				log.Fatalf("获取所有用户失败: %v", err)
 			}
-			log.Println(getAll)
-			for _, v := range getAll.Users {
+			log.Printf("所有用户: %s", getAll)
+			/*for _, v := range getAll.Users {
 				log.Println(v)
-			}
+			}*/
 			os.Exit(0)
 		}),
 	)

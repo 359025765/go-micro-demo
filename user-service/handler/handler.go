@@ -52,7 +52,7 @@ func (srv *UserService) Auth(ctx context.Context, req *pb.User, res *pb.Token) e
 
 	// 获取用户信息
 	user, err := srv.Repo.GetByEmail(req.Email)
-	log.Println(user)
+	log.Printf("当前登录的用户信息: %v", user)
 	if err != nil {
 		return err
 	}
