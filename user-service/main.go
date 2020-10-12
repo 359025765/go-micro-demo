@@ -6,6 +6,7 @@ import (
 	"github.com/359025765/go-micro-demo/user-service/handler"
 	pb "github.com/359025765/go-micro-demo/user-service/proto/user"
 	repositroy "github.com/359025765/go-micro-demo/user-service/repo"
+	"github.com/359025765/go-micro-demo/user-service/service"
 	"github.com/micro/go-micro"
 	"log"
 )
@@ -26,6 +27,9 @@ func main() {
 	// 初始化Repo实例用于后续数据库操作
 	repo := &repositroy.UserRepository{db}
 
+	// 初始化token service
+	token := &service.TokenService{repo}
+
 	// 创建微服务
 	service := micro.NewService(
 		micro.Name("laracom.user.service"),
@@ -34,7 +38,7 @@ func main() {
 	service.Init()
 
 	// 注册处理器
-	pb.RegisterUserServiceHandler(service.Server(), &handler.UserService{repo})
+	pb.RegisterUserServiceHandler(service.Server(), &handler.UserService{repo, token})
 
 	// 启动用户服务
 	if err := service.Run(); err != nil {

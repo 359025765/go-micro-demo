@@ -7,7 +7,6 @@ require (
 	github.com/micro/cli v0.2.0
 	github.com/micro/go-micro v1.18.0
 	golang.org/x/net v0.0.0-20201009032441-dbdefad45b89
-	google.golang.org/grpc v1.27.0
 )
 
 replace google.golang.org/grpc v1.27.0 => google.golang.org/grpc v1.26.0
