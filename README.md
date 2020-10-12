@@ -1,5 +1,5 @@
 # go-micro-demo 微服务案例
- 
+> *本项目是参考[学院君](https://xueyuanjun.com/books/microservices)的微服务教程进行的开发
 ###  服务框架 
 - 应用层(php所选框架laravel)，rpc框架则是go-micro
 
